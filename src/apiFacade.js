@@ -40,6 +40,16 @@ function apiFacade() {
     return fetch(URL + "/api/cat/cat", options).then(handleHttpErrors);
   }
 
+  const fetchOwner = () => {
+    const options = makeOptions("GET", true); //True add's the token
+    return fetch(URL + "/api/owner/all", options).then(handleHttpErrors);
+  }
+
+  const getBoatsByHarbourId = (id) => {
+    const options = makeOptions("GET", true); //True add's the token
+    return fetch(URL + `/api/harbour/${id}/`, options).then(handleHttpErrors);
+  }
+
   const create = (username, password) => {
     const options = makeOptions("POST", true, { userName: username, userPass: password }); //True add's the token
     console.log(username + " " + password);
@@ -73,7 +83,9 @@ function apiFacade() {
     logout,
     fetchUserInfo,
     fetchCat,
+    fetchOwner,
     create,
+    getBoatsByHarbourId,
   }
 }
 const facade = apiFacade();

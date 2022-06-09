@@ -11,7 +11,9 @@ const Header = ( { loggedIn } ) => {
       <header>
         <nav>
           <NavLink className="nav-link" to="/">Home</NavLink>
-          <NavLink className="nav-link" to="cat">Generate</NavLink>
+          <NavLink className="nav-link" to="owner">All Boat Owners</NavLink>
+          <NavLink className="nav-link" to="boats">Boats by Harbour</NavLink>
+          <NavLink className="nav-link" to="admin">Admin options</NavLink>
 
 
           {

@@ -7,6 +7,9 @@ import LoginPage from "./components/LoginPage";
 import Cat from "./components/Cat";
 import { useState } from "react";
 import Header from "./components/Header";
+import Owners from "./components/Owners";
+import Admin from "./components/Admin";
+import Boats from "./components/Boats";
 
 export default function App() {
 
@@ -21,7 +24,9 @@ export default function App() {
         <Route path="/" element={<Home/>}>
         </Route>
         <Route path="login" element={<LoginPage loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
-        <Route path="cat" element={<Cat/>} />
+        <Route path="owner" element={<Owners/>} />
+        <Route path="boats" element={<Boats/>} />
+        <Route path="admin" element={<Admin/>} />
         <Route path="*" element={<NoMatch/>} />
     </Routes>
   </BrowserRouter>,
