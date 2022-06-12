@@ -19,7 +19,7 @@ jobs:
          cache: 'npm'
 
      # in the line below chance localhost if necessary, and chance MYDOMAIN to your where your API domain 
-      - run: sed -i -e 's/localhost:8080/ca2_startcode_backend_war_exploded /ruaffu.com\/harbour-backend/g' src/settings.js
+      - run: sed -i -e 's/ localhost:8080\/ca2_startcode_backend_war_exploded /ruaffu.com\/harbour-backend/g' src/settings.js
       - run: npm i
       - run: npm run build 
       - run: mv ./dist/index.html ./dist/200.html
