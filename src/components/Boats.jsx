@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import facade from "../apiFacade";
+import "../styles/Forms.css";
 
 const Boats = () => {
 
@@ -16,18 +17,27 @@ const Boats = () => {
         e.preventDefault();
         facade.getBoatsByHarbourId(harbour.harbourID).then(data => setBoats(data))
       };
+      console.log(boats);
 
   return (
-    <div>
+    <div className='login'>
+      <div >
+        <div>
         <h2>Boats by harbour</h2>
-        <form>
-            <label>Harbour id</label>
-            <input type="text" name='harbourID' onChange={handleChange}></input>
+        </div>
+        <div className='login-box '>
+        <form >
+          <div >
+            
+            <input type="text" name='harbourID' onChange={handleChange} placeholder='Harbour ID' ></input>
+            </div>
         </form>
-        <button className="button-text" type="submit" onClick={handleSubmit}>
+        <button className="btn btn-primary btn-block btn-large" type="submit" onClick={handleSubmit}>
         Find
       </button>
-      <div>
+      </div>
+      </div>
+      <div className='user-box'>
       {boats.map(boat => (
           <div key={boat.id}>
             <h2>Brand: {boat.brand}</h2>
@@ -38,6 +48,7 @@ const Boats = () => {
           </div>
         ))}
       </div>
+      
     </div>
   )
 }

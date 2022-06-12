@@ -50,6 +50,26 @@ function apiFacade() {
     return fetch(URL + `/api/harbour/${id}/`, options).then(handleHttpErrors);
   }
 
+  const connectBoat = (boatID, harbourID) => {
+    const options = makeOptions("PUT", true); //True add's the token
+    return fetch(URL + `/api/boats/${boatID}/connect/${harbourID}`, options)
+      .then(handleHttpErrors)
+      .then(res => { setToken(res.token) })
+  }
+
+  const updateBoat = (boatID,boatInfo) => {
+    const options = makeOptions("PUT", true, boatInfo); //True add's the token
+    console.table(boatInfo);
+    return fetch(URL + `/api/boats/${boatID.id}/update`, options)
+      .then(handleHttpErrors)
+      .then(res => { setToken(res.token) })
+  }
+
+  const deleteBoat = (id) => {
+    const options = makeOptions("DELETE", true); //True add's the token
+    return fetch(URL + `/api/boats/${id.boatID}/delete`, options).then(handleHttpErrors);
+  }
+
   const create = (username, password) => {
     const options = makeOptions("POST", true, { userName: username, userPass: password }); //True add's the token
     console.log(username + " " + password);
@@ -86,6 +106,9 @@ function apiFacade() {
     fetchOwner,
     create,
     getBoatsByHarbourId,
+    connectBoat,
+    updateBoat,
+    deleteBoat,
   }
 }
 const facade = apiFacade();

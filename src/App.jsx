@@ -10,6 +10,9 @@ import Header from "./components/Header";
 import Owners from "./components/Owners";
 import Admin from "./components/Admin";
 import Boats from "./components/Boats";
+import ConnectBoat from "./components/ConnectBoat";
+import UpdateBoat from "./components/UpdateBoat";
+import Delete from "./components/Delete";
 
 export default function App() {
 
@@ -27,6 +30,9 @@ export default function App() {
         <Route path="owner" element={<Owners/>} />
         <Route path="boats" element={<Boats/>} />
         <Route path="admin" element={<Admin/>} />
+        <Route path="connect" element={<ConnectBoat/>} />
+        <Route path="update" element={<UpdateBoat/>} />
+        <Route path="delete" element={<Delete/>} />
         <Route path="*" element={<NoMatch/>} />
     </Routes>
   </BrowserRouter>,
