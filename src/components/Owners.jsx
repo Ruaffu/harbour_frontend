@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import facade from "../apiFacade";
+import "../styles/Owners.css";
 
 const Owners = () => {
   const [owners, setOwners] = useState([]);
@@ -16,11 +17,11 @@ const Owners = () => {
   },[])
 
   return (
-    <div>
-      <h1>Owners</h1>
-      <div>
+    <div >
+      <h1 className="center-text book-text">Owners</h1>
+      <div className='card-list'>
         {owners.map(owner => (
-          <div key={owner.id}>
+          <div key={owner.id} className='card-container'>
             <h2>Name: {owner.name}</h2>
             <h2>Address: {owner.address}</h2>
             <h2>Phone number: {owner.phone}</h2>
